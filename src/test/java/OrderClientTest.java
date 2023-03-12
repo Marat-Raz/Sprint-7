@@ -57,6 +57,6 @@ public class OrderClientTest {
         assertEquals("Status code is incorrect",SC_CREATED, statusCode);
 
         OrderClient.cancelOrder(track);
-
-    }
+       // System.out.println(track); Заказ в базу не вносится, но по трэк номеру удаляется. Странное поведение.
+        }
 }

@@ -9,9 +9,9 @@ public class Order {
     private int rentTime;
     private String deliveryDate;
     private String comment;
-    private String[] colour;
+    private String[] color;
 
-    public Order(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String[] colour, String comment) {
+    public Order(String firstName, String lastName, String address, int metroStation, String phone, int rentTime, String deliveryDate, String[] color, String comment) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -19,7 +19,7 @@ public class Order {
         this.phone = phone;
         this.rentTime = rentTime;
         this.deliveryDate = deliveryDate;
-        this.colour = colour;
+        this.color = color;
         this.comment = comment;
 
     }
@@ -80,12 +80,12 @@ public class Order {
         this.comment = comment;
     }
 
-    public String[] getColour() {
-        return colour;
+    public String[] getcolor() {
+        return color;
     }
 
-    public void setColour(String[] colour) {
-        this.colour = colour;
+    public void setcolor(String[] color) {
+        this.color = color;
     }
 
     public String getAddress() {

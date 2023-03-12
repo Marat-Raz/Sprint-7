@@ -7,10 +7,10 @@ public class OrderGenerator {
 
     public static Faker faker = new Faker();
     public static Random random = new Random();
-    public static String[] colour;
+    public static String[] color;
 
 
-    public static Order getOrder(String[] colour) {
+    public static Order getOrder(String[] color) {
          String firstName = faker.name().firstName();
          String lastName = faker.name().lastName();
          String address = faker.address().fullAddress();
@@ -20,7 +20,7 @@ public class OrderGenerator {
          String deliveryDate = "2024-06-01";
          String comment = "Saske, come back to Konoha";
 
-        return new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, colour, comment);
+        return new Order(firstName, lastName, address, metroStation, phone, rentTime, deliveryDate, color, comment);
     }
 
 }
