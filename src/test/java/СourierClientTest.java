@@ -9,11 +9,12 @@ import сourierModel.*;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
 import static org.apache.http.HttpStatus.*;
 import static org.junit.Assert.*;
 
 public class СourierClientTest {
-   // private Сourier courier;
+    // private Сourier courier;
     private СourierClient сourierClient;
     private int id;
 
@@ -36,7 +37,7 @@ public class СourierClientTest {
         ValidatableResponse response = сourierClient.creatingСourier(courier);
         int statusCode = response.extract().statusCode();
         boolean isCourierCreated = response.extract().path("ok");
-        assertEquals("Status code is incorrect",SC_CREATED, statusCode);
+        assertEquals("Status code is incorrect", SC_CREATED, statusCode);
         assertTrue("Courier is not created", isCourierCreated);
 
         ValidatableResponse loginResponse = сourierClient.courierLogin(CourierCredentials.from(courier));
@@ -46,6 +47,7 @@ public class СourierClientTest {
         сourierClient.deleteCourier(id);
 
     }
+
     @Test
     @DisplayName("Нельзя создать двух одинаковых курьеров")
     public void cannotСreateTwoIdenticalCouriersTest() {
@@ -53,12 +55,13 @@ public class СourierClientTest {
         сourierClient.creatingСourier(courier);
         ValidatableResponse secondResponse = сourierClient.creatingСourier(courier);
         int statusCode = secondResponse.extract().statusCode();
-        assertEquals("Status code is incorrect",SC_CONFLICT, statusCode);
+        assertEquals("Status code is incorrect", SC_CONFLICT, statusCode);
 
         ValidatableResponse loginResponse = сourierClient.courierLogin(CourierCredentials.from(courier));
         сourierClient.deleteCourier(loginResponse.extract().path("id"));
 
     }
+
     @Test
     @DisplayName("Если одного из полей нет при создании курьера, запрос возвращает ошибку *отсутстие поля login")
     public void cannotCreateCourierWithoutLoginTest() {
@@ -66,9 +69,10 @@ public class СourierClientTest {
         ValidatableResponse response = сourierClient.creatingСourier(courierWithoutLogin);
         int statusCode = response.extract().statusCode();
 
-        assertEquals("Status code is incorrect",SC_BAD_REQUEST, statusCode);
+        assertEquals("Status code is incorrect", SC_BAD_REQUEST, statusCode);
 
     }
+
     @Test
     @DisplayName("Если одного из полей нет при создании курьера, запрос возвращает ошибку *отсутстие поля password")
     public void cannotCreateCourierWithoutPasswordTest() {
@@ -76,9 +80,10 @@ public class СourierClientTest {
         ValidatableResponse response = сourierClient.creatingСourier(courierWithoutPassword);
         int statusCode = response.extract().statusCode();
 
-        assertEquals("Status code is incorrect",SC_BAD_REQUEST, statusCode);
+        assertEquals("Status code is incorrect", SC_BAD_REQUEST, statusCode);
 
     }
+
     @Test
     @DisplayName("Если одного из полей нет при создании курьера, запрос возвращает ошибку *отсутстие поля firstName")
     public void cannotCreateCourierWithoutFirstNameTest() {
@@ -86,7 +91,7 @@ public class СourierClientTest {
         ValidatableResponse response = сourierClient.creatingСourier(courierWithoutFirstName);
         int statusCode = response.extract().statusCode();
 
-        assertEquals("Status code is incorrect",SC_BAD_REQUEST, statusCode);
+        assertEquals("Status code is incorrect", SC_BAD_REQUEST, statusCode);
 
     }
 
@@ -99,7 +104,7 @@ public class СourierClientTest {
         ValidatableResponse secondResponse = сourierClient.creatingСourier(secondCourierWithExistingLogin);
         int statusCode = secondResponse.extract().statusCode();
 
-        assertEquals("Status code is incorrect",SC_CONFLICT, statusCode);
+        assertEquals("Status code is incorrect", SC_CONFLICT, statusCode);
 
         ValidatableResponse loginResponse = сourierClient.courierLogin(CourierCredentials.from(firstCourier));
         id = loginResponse.extract().path("id");
