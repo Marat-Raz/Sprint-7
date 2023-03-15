@@ -3,16 +3,16 @@ package сlient;
 import сlient.base.Client;
 import io.qameta.allure.Step;
 import io.restassured.response.ValidatableResponse;
-import сourierModel.*;
+import courierModel.*;
 
 import static io.restassured.RestAssured.given;
 
-public class СourierClient extends Client {
+public class CourierClient extends Client {
     public static final String COURIER_URI = BASE_URL + "courier/";
     public static final String COURIER_LOGIN = COURIER_URI + "login/";
 
     @Step("Create courier {courier}")
-    public ValidatableResponse creatingСourier(Сourier courier){
+    public ValidatableResponse creatingCourier(Courier courier){
         return given()
                 .spec(getBaseSpec())
                 .body(courier)
