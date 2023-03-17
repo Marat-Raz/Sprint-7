@@ -37,7 +37,6 @@ public class CourierClientTest {
     }
     @After
     public void cleanUp() {
-
         courierClient.deleteCourier(id);
     }
 

@@ -18,21 +18,4 @@ public class ListOfOrdersClient extends Client {
                 .get(ORDERS_URI)
                 .then();
     }
-
-
-/*
-    given()
-                .header("Content-type", "application/json")
-                .log().all()
-                .get("/api/v1/orders")
-                .then()
-                .assertThat()
-                .statusCode(200);
-    ListOfOrders listOfOrders = given()
-            .header("Content-type", "application/json")
-            .log().all()
-            .get("/api/v1/orders")
-            .body()
-            .as(ListOfOrders.class);
-        Assert.assertThat(listOfOrders.getOrders(), Matchers.not(Matchers.empty()));*/
 }

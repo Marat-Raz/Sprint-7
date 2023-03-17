@@ -20,7 +20,7 @@ public class OrderClient extends Client {
                 .post(ORDER_URI)
                 .then();
     }
-    @Step("Return orderlist")
+    @Step("Return orderList")
     public ValidatableResponse getOrderList() { // доработать нужно
         return given()
                 .spec(getBaseSpec())
