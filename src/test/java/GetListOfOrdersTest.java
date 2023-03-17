@@ -1,4 +1,3 @@
-import io.qameta.allure.Description;
 import io.qameta.allure.junit4.DisplayName;
 import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.RestAssured;
@@ -8,7 +7,7 @@ import io.restassured.response.ValidatableResponse;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import сlient.ListOfOrdersClient;
+import client.ListOfOrdersClient;
 
 import java.util.ArrayList;
 import java.util.Collections;

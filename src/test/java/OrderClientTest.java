@@ -10,7 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-import сlient.OrderClient;
+import client.OrderClient;
 
 import static org.apache.http.HttpStatus.SC_CREATED;
 import static org.junit.Assert.assertEquals;
@@ -18,11 +18,9 @@ import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
 public class OrderClientTest {
-    private final OrderClient orderClient;
     private final String[] colour;
 
     public OrderClientTest(String[] colour) {
-        orderClient = new OrderClient();
         this.colour = colour;
     }
     @BeforeClass
@@ -57,6 +55,6 @@ public class OrderClientTest {
         assertEquals("Status code is incorrect",SC_CREATED, statusCode);
 
         OrderClient.cancelOrder(track);
-       // System.out.println(track); Заказ в базу не вносится, но по трэк номеру удаляется. Странное поведение.
+
         }
 }

@@ -1,4 +1,4 @@
-package сourierModel;
+package courierModel;
 
 import org.apache.commons.lang3.RandomStringUtils;
 
@@ -16,10 +16,10 @@ public class CourierGenerator {
     }
 
     public static Courier getFirstExistingCourier() {
-        return new Courier("existing_Courier", password, firstName);
+        return new Courier("existing_Courier_" + login, password, firstName);
     }
     public static Courier getSecondExistingCourier() {
-        return new Courier("existing_Courier", password+2, firstName+2);
+        return new Courier("existing_Courier_" + login, password+2, firstName+2);
     }
 
     public static Courier getCourierWithoutLogin() {

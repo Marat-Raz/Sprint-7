@@ -1,4 +1,4 @@
-package сourierModel;
+package courierModel;
 
 public class Courier {
     private String login;
